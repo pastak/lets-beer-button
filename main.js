@@ -1,7 +1,11 @@
 (function () {
+
+  const beerStyleCss = 'background: linear-gradient(to bottom, #ffffff 15%,#ffffff 15%,#ffdd00 47%);border: 2px solid #ffdd00;border-top-color: #ffffff;font-weight: bold;border-radius: 6px;'
+
   const userNameInput = document.getElementById('userNameInput')
   const textInput = document.getElementById('textInput')
   const buttonTextInput = document.getElementById('buttonTextInput')
+  const addBeerCss =  document.getElementById('addBeerCss')
 
   const previewArea = document.getElementById('previewArea')
   const pasteHtml = document.getElementById('pasteHtml')
@@ -12,6 +16,8 @@
     buttonTag.dataset['userName'] = userNameInput.value
     buttonTag.dataset['text'] = textInput.value
     buttonTag.dataset['buttonText'] = buttonTextInput.value
+
+    if (addBeerCss.checked) buttonTag.setAttribute('style', beerStyleCss)
 
     return buttonTag.outerHTML
   }
@@ -31,6 +37,8 @@
   ;[userNameInput, textInput, buttonTextInput].forEach(function (elm) {
     elm.addEventListener('keyup', onChange)
   })
+
+  addBeerCss.addEventListener('change', onChange)
 
   document.getElementById('copyButton').addEventListener('click', function () {
     const range = document.createRange()

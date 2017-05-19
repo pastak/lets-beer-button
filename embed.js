@@ -1,4 +1,6 @@
 (function () {
+  if (typeof window.__updateLetsBeerButton__ === 'function') return
+  
   window.__updateLetsBeerButton__ = function () {
     const twitterIntentUrl = 'https://twitter.com/intent/tweet'
     const defaultText = '飲みに行くぞ!!!🍺'
